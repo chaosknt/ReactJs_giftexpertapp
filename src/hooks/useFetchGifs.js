@@ -4,6 +4,11 @@ import { getGif } from "../helpers/getGifs";
 
 export const useFetchGifs = ( category ) => {
     
+    const [state, setstate] = useState({
+        data: [],
+        loading: true
+    });
+    
     useEffect ( () => {
         getGif( category )
                 .then( imgs =>{
@@ -13,9 +18,5 @@ export const useFetchGifs = ( category ) => {
                     });
                 })
     }, [category]);
-    const [state, setstate] = useState({
-        data: [],
-        loading: true
-    });
     return state;
 }
